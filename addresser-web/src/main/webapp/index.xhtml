@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Przykladowa aplikacja adresowa</h1>
+
+		<h2>Streets</h2>
+		<f:facet name="footer">
+               Wszystkie ulice: <a
+				href="#{request.contextPath}/rest/streets">/rest/streets</a>
+		</f:facet>
+	</ui:define>
+</ui:composition>
