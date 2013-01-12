@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.model;
+package pl.addresser.model;
 
 import java.io.Serializable;
 

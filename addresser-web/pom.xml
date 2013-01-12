@@ -5,7 +5,7 @@
 
 	<parent>
 		<artifactId>addresser</artifactId>
-		<groupId>kolasa.wojcik</groupId>
+		<groupId>pl</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -24,7 +24,7 @@
 
 		<!-- Dependency on the EJB module so we can use it's services if needed -->
 		<dependency>
-			<groupId>kolasa.wojcik</groupId>
+			<groupId>pl</groupId>
 			<artifactId>addresser-ejb</artifactId>
 			<type>ejb</type>
 			<scope>provided</scope>
@@ -52,6 +52,12 @@
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>2.6.0</version>
 		</dependency>
 
 	</dependencies>

@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.rest;
+package pl.addresser.rest;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import kolasa.wojcik.addresser.model.Street;
+import pl.addresser.model.Street;
 
 import com.google.common.base.Strings;
 
@@ -22,11 +22,11 @@ public class StreetRESTServiceImpl implements StreetRESTService {
 		return results;
 	}
 
-	public Street lookupMemberById(long id) {
+	public Street lookupById(long id) {
 		return em.find(Street.class, id);
 	}
 
-	public Street lookupMemberById(String desc) {
+	public Street lookupByDescription(String desc) {
 		Street street = em
 				.createQuery(
 						"select s from Street s where lower(s.description) = :description",

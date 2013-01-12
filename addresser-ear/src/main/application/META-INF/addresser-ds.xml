@@ -8,7 +8,7 @@
    <!-- The datasource is bound into JNDI at this location. We reference 
       this in META-INF/persistence.xml -->
    <datasource jndi-name="java:jboss/datasources/addresserDS"
-      pool-name="insurance" enabled="true"
+      pool-name="addresser" enabled="true"
       use-java-context="true">
       <connection-url>jdbc:mysql://localhost:3306/addresser</connection-url>
       <driver>mysql-connector-java-5.1.22.jar</driver>

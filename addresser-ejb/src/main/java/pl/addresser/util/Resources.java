@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.util;
+package pl.addresser.util;
 
 import java.util.logging.Logger;
 

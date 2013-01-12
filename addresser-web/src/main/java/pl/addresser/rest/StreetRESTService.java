@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.rest;
+package pl.addresser.rest;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import kolasa.wojcik.addresser.model.Street;
+import pl.addresser.model.Street;
 
 @Path("/streets")
 public interface StreetRESTService {
@@ -19,12 +19,12 @@ public interface StreetRESTService {
 	@GET
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("text/xml")
-	public Street lookupMemberById(@PathParam("id") long id);
+	public Street lookupById(@PathParam("id") long id);
 
 	@GET
 	@Path("/desc/{desc}")
 	@Produces("text/xml")
-	public Street lookupMemberById(@PathParam("desc") String desc);
+	public Street lookupByDescription(@PathParam("desc") String desc);
 
 	@GET
 	@Path("/suggest/{suggest}")

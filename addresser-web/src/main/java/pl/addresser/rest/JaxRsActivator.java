@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.rest;
+package pl.addresser.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

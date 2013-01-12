@@ -1,4 +1,4 @@
-package kolasa.wojcik.addresser.model;
+package pl.addresser.model;
 
 import java.io.Serializable;
 
@@ -9,41 +9,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @XmlRootElement
 @Entity
-public class Street implements Serializable {
+public class City implements Serializable {
 
-	private static final long serialVersionUID = 217372106015734230L;
+	private static final long serialVersionUID = 7526042825814903167L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STREET_SEQ")
-	@SequenceGenerator(name = "STREET_SEQ", sequenceName = "STREET_SEQ", initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 
 	@NotNull
 	private String name;
 
 	@NotNull
-	@OneToOne
-	@JoinColumn(name = "cityId")
-	private City city;
+	private String description;
 
 	@NotNull
-	@NotEmpty
-	private String description;
+	@OneToOne
+	@JoinColumn(name = "provinceId")
+	private Province province;
 
 	@Version
 	@Column(name = "version")
 	private Integer version;
 
-	public Street() {
+	public City() {
 	}
 
 	public Long getId() {
@@ -62,20 +58,12 @@ public class Street implements Serializable {
 		this.name = name;
 	}
 
-	public City getCity() {
-		return city;
+	public Province getProvince() {
+		return province;
 	}
 
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setProvince(Province province) {
+		this.province = province;
 	}
 
 	public Integer getVersion() {
@@ -86,15 +74,24 @@ public class Street implements Serializable {
 		this.version = version;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((province == null) ? 0 : province.hashCode());
 		result = prime * result + ((version == null) ? 0 : version.hashCode());
 		return result;
 	}
@@ -107,12 +104,7 @@ public class Street implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Street other = (Street) obj;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
+		City other = (City) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -128,6 +120,11 @@ public class Street implements Serializable {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (province == null) {
+			if (other.province != null)
+				return false;
+		} else if (!province.equals(other.province))
+			return false;
 		if (version == null) {
 			if (other.version != null)
 				return false;
@@ -138,8 +135,9 @@ public class Street implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Street [id=" + id + ", name=" + name + ", city=" + city
-				+ ", description=" + description + ", version=" + version + "]";
+		return "City [id=" + id + ", name=" + name + ", description="
+				+ description + ", province=" + province + ", version="
+				+ version + "]";
 	}
 
 }

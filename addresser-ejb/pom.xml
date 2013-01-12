@@ -4,7 +4,7 @@
 
    <parent>
       <artifactId>addresser</artifactId>
-      <groupId>kolasa.wojcik</groupId>
+      <groupId>pl</groupId>
       <version>0.0.1-SNAPSHOT</version>
    </parent>
 
