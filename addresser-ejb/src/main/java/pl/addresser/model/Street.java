@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,6 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @XmlRootElement
 @Entity
+@Table(name="SOA_STREET")
 public class Street implements Serializable {
 
 	private static final long serialVersionUID = 217372106015734230L;

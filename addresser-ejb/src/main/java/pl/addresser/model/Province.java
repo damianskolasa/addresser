@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -15,6 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @XmlRootElement
 @Entity
+@Table(name="SOA_PROVINCE")
 public class Province implements Serializable {
 
 	private static final long serialVersionUID = -4174545693133768265L;

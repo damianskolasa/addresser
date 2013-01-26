@@ -42,6 +42,7 @@
                   are in easy way to package any libraries needed in the ear, and automatically 
                   have any modules (EJB-JARs and WARs) use them -->
                <defaultLibBundleDir>lib</defaultLibBundleDir>
+               <filtering>true</filtering>
                <modules>
                   <!-- Register our War as a web module, and set the context 
                      root -->
@@ -67,5 +68,28 @@
          </plugin>
       </plugins>
    </build>
-
+   
+   <profiles>
+		<profile>
+			<id>mysql</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<jdbc.url>jdbc:mysql://localhost:3306/addresser</jdbc.url>
+				<jdbc.username>liferay</jdbc.username>
+				<jdbc.password>liferay</jdbc.password>
+				<jdbc.driver>mysql-connector-java-5.1.22.jar</jdbc.driver>
+			</properties>
+		</profile>
+		<profile>
+			<id>oracle</id>
+			<properties>
+				<jdbc.url>jdbc:oracle:thin:@localhost:1521:xe</jdbc.url>
+				<jdbc.username>dk</jdbc.username>
+				<jdbc.password>admin123</jdbc.password>
+				<jdbc.driver>ojdbc6.jar</jdbc.driver>
+			</properties>
+		</profile>
+	</profiles>
 </project>
