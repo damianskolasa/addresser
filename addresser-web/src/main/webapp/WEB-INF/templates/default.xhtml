@@ -23,13 +23,10 @@
 
 		<p:layoutUnit position="west" size="200" resizable="false"
 			closable="false" collapsible="false">
+			<h1>Menu</h1>
 			<h:form>
-				<p:commandLink value="Dodaj umowę" action="/pesel.jsf" ajax="false">
-				</p:commandLink>
+				<a href="#{request.contextPath}/rest/streets">Pokaż wszystkie ulice</a>
 				<br />
-				<p:commandLink value="Pokaż umowy" action="/listContracts.jsf"
-					ajax="false">
-				</p:commandLink>
 			</h:form>
 		</p:layoutUnit>
 
