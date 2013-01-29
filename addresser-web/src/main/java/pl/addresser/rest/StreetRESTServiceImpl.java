@@ -29,7 +29,7 @@ public class StreetRESTServiceImpl implements StreetRESTService {
 	public Street lookupByDescription(String desc) {
 		Street street = em
 				.createQuery(
-						"select s from Street s where lower(s.description) = :description",
+						"select s from Street s where lower(s.description) = lower(:description)",
 						Street.class).setParameter("description", desc)
 				.getSingleResult();
 		return street;
